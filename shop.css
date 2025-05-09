@@ -1,0 +1,228 @@
+/* ==========================
+   SUBPAGE 2 CSS: The Shop
+========================== */
+:root {
+  --purple1: #bd469d;
+  --purple2: #514399;
+  --blue1: #433878;
+  --blue2: #37bfbd;
+  --black: #000;
+  --accent: #ef46c1;
+  --base-white: #ffe4ef;
+}
+
+/* ==========================
+   General Styles
+========================== */
+body {
+  background-color: var(--base-white);
+  color: var(--black);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  color: var(--purple2);
+}
+
+/* ==========================
+   Header and Navigation
+========================== */
+header {
+  background-image: url('Images/Banner 2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50vh;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+nav {
+  margin-top: 200px; /* Adjust the value as needed */
+}
+
+/* ==========================
+   Product Grid
+========================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.product-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.product-card img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.product-card h3 {
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+  color: var(--purple1);
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ==========================
+   Contact Section
+========================== */
+
+.contact-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--purple1);
+  margin-bottom: 30px;
+}
+
+.contact-section {
+  background-color: var(--base-white);
+  padding: 60px 20px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-details,
+.contact-form {
+  flex: 1 1 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--purple2);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid var(--purple1);
+  border-radius: 5px;
+  background-color: #fff;
+  color: var(--black);
+  font-size: 1rem;
+}
+
+.contact-form button {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: var(--blue2);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--blue1);
+}
+
+.social-links a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================
+   Buttons
+========================== */
+button {
+  background-color: var(--purple1);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent);
+}
+
+
+
+
+
+
+

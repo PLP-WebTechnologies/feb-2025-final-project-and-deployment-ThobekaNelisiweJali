@@ -1,0 +1,122 @@
+<!---- ==========================
+   Subpage 1 : The mission and vision of the website
+========================== !-->
+<!--This subpage outlines the mission and vision of the Healing Your Aura website. It includes sections for the vision, mission, and testimonials from users. -->
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vision & Mission - Healing Your Aura</title>
+  <link rel="stylesheet" href="vision.css">
+</head>
+<body>
+
+  <!---- ==========================
+   Header with banner and navigation
+========================== !-->
+  <header class="site-header">
+    <img src="Images/Banner 1.png" alt="Healing Your Aura Banner" class="banner-img" />
+    <nav>
+      <ul>
+        <li><button class="header-button" onclick="window.location.href='index.html';">Home</button></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+
+    <!----==========================
+    Vision Section
+ ========================== !-->
+    <!-- This section outlines the vision of the Healing Your Aura website. It includes a brief description and an image representing hope and peace. -->
+    <section id="vision" class="vision-section fade-slide-up">
+      <div class="vision-container">
+        <div class="vision-content">
+          <h2>Our Vision</h2>
+          <p>
+            To create a world where emotional well-being is accessible, embraced, and celebrated by everyone. 
+            We envision a future where individuals can openly explore their emotions, feel supported in their healing journeys, 
+            and thrive with inner peace as a core part of their daily lives.
+          </p>
+        </div>
+        <div class="vision-image">
+          <img src="Images\vision.jpg" alt="Sunrise symbolizing hope and peace" />
+        </div>
+      </div>
+    </section>
+
+    <!----==========================
+   Mission Section 
+========================== !-->
+    <!-- This section outlines the mission of the Healing Your Aura website. It includes a brief description and images representing calmness and inner peace. -->
+
+      <section class="mission-section fade-slide-up">
+        <div class="mission-container">
+          <div class="mission-images-vertical">
+            <img src="Images\Mission 1 (1).jpg" alt="Calm moment" />
+            <img src="Images\Mission 1 (2).jpg" alt="Inner peace" />
+          </div>
+          <div class="mission-content">
+            <h2>Our Mission</h2>
+            <p>"Our mission is to provide easily accessible, practical tools, insightful resources, and empathetic guidance to individuals navigating emotional challenges. We are committed to creating a safe and supportive environment where people can find clarity, cultivate emotional balance, and rediscover inner peace. Whether you’re seeking healing, personal growth, or simply a moment of stillness in a chaotic world, we are here to walk alongside you with compassion and care."</p>
+          </div>
+        </div>
+      </section>
+
+      <!----==========================
+      Testimonials Section
+   ========================== !-->
+    <!-- This section showcases testimonials from users who have benefited from the Healing Your Aura website. It includes images and quotes from satisfied users. -->
+
+      <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <img src="Images\Test 1.jpg" alt="Jane D.">
+            <p>“Healing Your Aura helped me rediscover myself and find peace I never thought possible.”</p>
+            <span>— Jane D.</span>
+          </div>
+          <div class="testimonial-card">
+            <img src="Images\Test 2.jpg" alt="Michael R.">
+            <p>“The guidance and support I found here changed my life.”</p>
+            <span>— Michael R.</span>
+          </div>
+          <div class="testimonial-card">
+            <img src="Images\Test 3.jpg" alt="Sara L.">
+            <p>“Every article and exercise brought me closer to my true self. I'm finally healing.”</p>
+            <span>— Sara L.</span>
+          </div>
+          <div class="testimonial-card">
+            <img src="Images\Test 4.jpg" alt="David K.">
+            <p>“A space of warmth and wisdom. I feel seen, heard, and hopeful again.”</p>
+            <span>— David K.</span>
+          </div>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Healing Your Aura. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-slide-up');
+  
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+  
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+
+</body>
+</html>

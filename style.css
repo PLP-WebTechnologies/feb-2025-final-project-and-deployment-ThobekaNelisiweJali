@@ -1,0 +1,850 @@
+/* ==========================
+   Main CSS File for the Website
+========================== */
+
+/* This is the first CSS file that shows the style of the main page*/
+
+ 
+  
+  /* CSS Variables */
+  /* Defined the color variables here for easy reference and theming */
+  
+:root {
+    --purple1: #bd469d;
+    --purple2: #514399;
+    --blue1: #433878;
+    --blue2: #37bfbd;
+    --black: #000;
+    --accent: #ef46c1;
+    --base-white: #ffe4ef;
+  }
+  
+  /* General Styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  main {
+    padding: 20px;
+    padding-top: 70px; /* Adjusted based on nav height */
+  }
+  
+  body {
+    background-color: #eaeaea;
+    overflow-x: hidden;
+    
+  }
+  
+  header {
+    background-color: var(--purple2);
+    padding: 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin-bottom: 10px;
+  }
+
+
+/* ==========================
+   Navigation Bar Styles
+========================== */
+
+/* This section styles the navigation bar that appears on top of the hero section */
+
+
+  /* Added a navigation bar that stays on top of the hero section */
+
+  nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999; /* Higher than the hero section */
+    background-color: #514399; /* Optional: makes it visible on top of images */
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+     padding-top: 9px;
+    padding-bottom: 9px;
+  }
+  
+  nav ul li a {
+    color: var(--base-white);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    background-color: var(--purple1);
+  }
+
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  h2 {
+    color: var(--purple2);
+    margin-bottom: 10px;
+  }
+
+
+
+/* ==========================
+    Hero OR Home Section Styles
+========================== */
+
+/* This is the main section of the page, where the slider and content are displayed */
+
+
+/* Hero Section */
+.hero {
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  padding: 20px; /* Prevent edge clipping on smaller screens */
+  padding-bottom: 100px;
+  position: relative; /* For absolute positioning of the slider */
+  z-index: 1; /* Ensure it's above other sections */
+  overflow:visible;
+  
+}
+
+/* Slider Container */
+/* This is the main container for the slider, which holds all the slides */
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 600px;
+  background: #f5f5f5;
+  box-shadow: 0 30px 50px #bddbdb;
+}
+
+.container .slide .item{
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 20px;
+  box-shadow: 0 30px 50px #505050;
+  background-position: 50% 50%;
+  background-size: cover;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+/* Slide Backgrounds */
+
+.slide .item:nth-child(1) {
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Next visible slide */
+.slide .item:nth-child(2) {
+  left: 50%;
+  z-index: 0;
+}
+
+/* Slide further to the right */
+.slide .item:nth-child(3) {
+  left: calc(50% + 220px);
+  z-index: 0;
+}
+
+.slide .item:nth-child(4) {
+  left: calc(50% + 440px);
+  z-index: 0;
+}
+
+.slide .item:nth-child(5) {
+  left: calc(50% + 660px);
+  z-index: 0;
+}
+.slide .item:nth-child(6) {
+  left: calc(50% + 880px);  /* 220px * 4 */
+  z-index: 0;
+}
+
+.see-more-button {
+  position: relative;   /* or absolute if needed */
+  z-index: 10;          /* adjust depending on layout */
+  margin-top: 20px;     /* push it away from slides */
+}
+
+/* Slide Content */
+
+.item .content{
+  position:absolute;
+  top:50%;
+  left:100px;
+  width: 300px;
+  text-align: left;
+  color: #eee;
+  transform: translate(0, -50%);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: none;
+  
+}
+
+.slide .item:nth-child(2) .content{
+  display: block;
+}
+
+
+.content .name{
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0;
+  animation: animate 1s ease-in-out 1 forwards;
+}
+
+.content .desc{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  opacity: 0;
+  animation: animate 1s ease-in-out 1 forwards;
+}
+
+/* See More Button styles */
+
+.button {
+  position: absolute;
+  bottom: 20px; /* Position button at the bottom */
+  left: -40px;
+  
+  z-index: 10; /* Ensure the button is above content */
+}
+
+.item .see-more {
+  position: absolute;
+  top: 70%;         /* Adjust as needed */
+  left: 30px;       /* Adjust left positioning */
+  z-index: 5;
+}
+
+.item .see-more a {
+  display:inline-block;
+  padding: 10px 20px;
+  background-color: #514399;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.item .see-more a:hover {
+  background-color: #ef46c1;
+}
+
+
+/* Animation for the content to fade in and slide up */
+/* This animation is applied to the content of each slide when it becomes visible */
+
+@keyframes animate{
+  from{
+    opacity: 0;
+    transform: translate(0, 100px);
+    filter: blur(33px);
+
+  }
+  to{
+    opacity: 1;
+    transform: translate(0);
+    filter: blur(0);
+  }
+}
+
+/* Navigation Button styles */
+/* These buttons are used to navigate between slides (left or right navigation) */
+
+.button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2; /* Make sure it's above the content */
+  display: flex;
+  gap: 10px;
+}
+
+.button button {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: #514399;
+  transition: 0.3s;
+}
+
+.button button:hover {
+  background: var(--purple1);
+  color: white;
+}
+
+/* Responsive Styles */
+/* Adjust the layout for smaller screens */
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-text, .about-images {
+    flex: 1 1 100%;
+  }
+
+  .slide .item {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none;
+  }
+
+  .item .content {
+    position: static;
+    transform: none;
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+
+/* ==========================
+    About Section Styles
+========================== */
+/* This section provides information about the website and its purpose */
+
+ #about {
+    padding: 60px 20px;
+  }
+  
+  #about p {
+    margin-bottom: 16px; /* Space in between paragraphs */
+    font-size: 18px; /* Optional: also increase font size slightly for readability */
+    line-height: 1.6;
+  }
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  
+  .about-text {
+    flex: 1 1 45%;
+    text-align: left;
+  }
+
+  .about-text h2 {
+    font-size: 48px;
+    color: var(--purple2);
+    animation: bounceIn 1s ease;
+  }
+
+  /* Added a bounce-in animation for the heading */
+  
+  @keyframes bounceIn {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(20px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+ 
+  /* Images added in the section  */
+  .about-images {
+    flex: 1 1 45%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  
+  .about-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .about-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .about-images img.clicked {
+    transform: scale(1.15) rotate(3deg);
+    transition: transform 0.2s;
+  }
+
+  /* Added a button to the about section */
+  /* This button can be used to navigate to another page or section ( Vision Mission Page)  */
+
+  .about-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--purple1);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .about-button:hover {
+    background-color: var(--accent);
+  }
+  
+
+  /* ==========================
+    Blog Section Styles
+========================== */
+/* This section displays the latest blog posts or articles related to mental health */
+
+
+  #blog {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffe4ef; /* Added a light grey background */
+  }
+  
+  
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .blog-card {
+    background-color: white;
+    border: 1px solid var(--purple1);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .blog-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .blog-card h3 {
+    padding: 15px;
+    color: var(--blue1);
+  }
+
+  #blog {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  #blog h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: var(--purple2);
+  }
+  
+  #blog p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: var(--black);
+  }
+  
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 10px;
+    text-align: left;
+  }
+  /* Blog Card hovering */
+  
+  .blog-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .blog-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .blog-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .blog-card h3 {
+    padding: 15px;
+    font-size: 18px;
+    color: var(--purple2);
+  }
+  
+/* ==========================
+    Mental Health Resources Section Styles
+========================== */
+/* This section provides links to various mental health resources, articles, and support groups */
+
+ 
+.carousel-container {
+    overflow-x: auto;
+    padding: 20px 0;
+  }
+  
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+  }
+  /* Carousel Item Styles */
+  .resource-card {
+    position: relative;
+    flex: 0 0 auto;
+    width: 250px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .resource-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .resource-card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .resource-card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+  }
+  
+  /* Modal Styling */
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding: 40px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    text-align: center;
+  }
+  
+  .modal img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .modal .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .modal .caption {
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Navigation Buttons */
+  
+  .nav-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    padding: 0 40px;
+  }
+
+  #resources h2 {
+    text-align: center;
+    font-size: 50px;
+    color: var(--purple2); 
+    margin-bottom: 30px;   /* Adds spacing below the heading */
+  }
+
+/* ==========================
+    Programs Section Styles
+========================== */
+/* This section provides information about various mental health programs and initiatives */
+
+#programs {
+  padding: 60px 20px;
+  text-align: center;
+  background: var(--base-white);
+}
+
+#programs h2 {
+  font-size: 36px;
+  color: var(--purple2);
+  margin-bottom: 30px;
+}
+
+.swiper {
+  width: 100%;
+  max-width: 800px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: auto;
+}
+
+.swiper-slide {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  padding: 20px;
+  width: 300px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.swiper-slide h3 {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.swiper-slide p {
+  font-size: 0.95em;
+  color: #555;
+}
+  
+  
+
+/* ==========================
+    Inspiration Section Styles
+========================== */
+/* This section provides motivational quotes related to mental health */
+
+#inspiration {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  #inspiration button {
+    background-color: var(--purple2);
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #inspiration button:hover {
+    background-color: var(--accent);
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.4s;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.5s ease-out;
+    color: var(--blue1);
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--black);
+    cursor: pointer;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+ /* ==========================
+    Shop Section Styles
+========================== */
+/* This section provides information about the shop, including products and links to purchase them (Leads tO Subpage) */
+
+ #shop h2 {
+  font-size: 3rem; /* Adjust the value as needed */
+  font-weight: bold;
+  
+}
+
+ #shop {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.shop-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Shop Image added in section */
+.shop-image img {
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+  height: auto;
+  border-radius: 8px;
+}
+.shop-image {
+  position: relative;
+  overflow: hidden;
+  max-width: 45%;
+}
+
+.shop-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.shop-image:hover img {
+  transform: scale(1.1);
+}
+
+.shop-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+.shop-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #514399;
+  color: var(--base-white);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.shop-button:hover {
+  background-color: #ef46c1;
+}
+  
+/* ==========================
+   Footer Styles
+========================== */
+
+
+  footer {
+    background-color: var(--purple2);
+    color: var(--base-white);
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+  }
+
+  
